@@ -3,18 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>cloud20210219</artifactId>
+        <artifactId>cloud-order</artifactId>
         <groupId>com.stu.springcloud</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-order</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>order-server</module>
-        <module>order-client</module>
-    </modules>
+    <groupId>com.stu.cloud</groupId>
+    <artifactId>order-client</artifactId>
 
 
 </project>
