@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/cloud-common/cloud-common.iml" filepath="$PROJECT_DIR$/cloud-common/cloud-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud-member/cloud-member.iml" filepath="$PROJECT_DIR$/cloud-member/cloud-member.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud-order/cloud-order.iml" filepath="$PROJECT_DIR$/cloud-order/cloud-order.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud-payment/cloud-payment.iml" filepath="$PROJECT_DIR$/cloud-payment/cloud-payment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud20210219.iml" filepath="$PROJECT_DIR$/cloud20210219.iml" />
+    </modules>
+  </component>
+</project>
