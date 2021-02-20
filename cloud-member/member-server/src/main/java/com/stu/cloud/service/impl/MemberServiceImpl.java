@@ -1,15 +1,15 @@
 package com.stu.cloud.service.impl;
 
-import cn.hutool.core.collection.CollUtil;
-import com.stu.cloud.dao.MemberDao;
+import com.sto.cloud.member.request.CreateMemberInfoRequest;
+import com.sto.cloud.member.response.QueryMemberInfoResponse;
 import com.stu.cloud.entity.Member;
-import com.stu.cloud.entity.MemberExample;
+import com.stu.cloud.repository.MemberRepository;
 import com.stu.cloud.service.MemberService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
+import java.util.Objects;
 
 /**
  * @Author: p_quzhou
@@ -21,26 +21,46 @@ import java.util.List;
 public class MemberServiceImpl implements MemberService {
 
     @Resource
-    private MemberDao memberDao;
+    private MemberRepository memberRepository;
 
     @Override
-    public Integer createMember(Member member) {
-        return memberDao.insert(member);
+    public Integer createMember(CreateMemberInfoRequest request) {
+        Member member = new Member();
+        member.setMemberNo(request.getMemberNo());
+        member.setMemberName(request.getMemberName());
+        member.setMemberPhone(request.getMemberPhone());
+        member.setMemberSex(request.getMemberSex().byteValue());
+        member.setMemberType(request.getMemberType().byteValue());
+        return memberRepository.createMember(member);
     }
 
     @Override
-    public Member queryMemberById(Long memberId) {
-        return memberDao.selectByPrimaryKey(memberId);
+    public QueryMemberInfoResponse queryMemberById(Long memberId) {
+        Member member = memberRepository.queryMemberById(memberId);
+        return buildQueryResponse(member);
     }
 
     @Override
-    public Member queryMemberByNo(String memberNo) {
-        MemberExample memberExample = new MemberExample();
-        memberExample.createCriteria().andMemberNoEqualTo(memberNo);
-        List<Member> memberList = memberDao.selectByExample(memberExample);
-        if (CollUtil.isNotEmpty(memberList)) {
-            return memberList.get(0);
+    public QueryMemberInfoResponse queryMemberByNo(String memberNo) {
+        Member member = memberRepository.queryMemberByNo(memberNo);
+        return buildQueryResponse(member);
+    }
+
+    private QueryMemberInfoResponse buildQueryResponse(Member member) {
+        QueryMemberInfoResponse response = null;
+        if (Objects.nonNull(member)) {
+            response = new QueryMemberInfoResponse();
+            response.setId(member.getId());
+            response.setMemberNo(member.getMemberNo());
+            response.setMemberName(member.getMemberName());
+            response.setMemberPhone(member.getMemberPhone());
+            response.setMemberSex(member.getMemberSex().intValue());
+            response.setStatus(member.getStatus().intValue());
+            response.setMemberType(member.getMemberType().intValue());
+            response.setCreateTime(member.getCreateTime().getTime());
+            response.setUpdateTime(member.getUpdateTime().getTime());
+            response.setIsDeleted(member.getIsDeleted().intValue());
         }
-        return null;
+        return response;
     }
 }

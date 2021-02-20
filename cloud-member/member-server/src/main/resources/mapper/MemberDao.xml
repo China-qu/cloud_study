@@ -75,7 +75,7 @@
     id, member_no, member_name, member_phone, member_sex, `status`, member_type, create_time, 
     update_time, is_deleted
   </sql>
-  <select id="selectByExample" parameterType="com.stu.cloud.member.entity.MemberExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.stu.cloud.entity.MemberExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -99,13 +99,13 @@
     delete from stu_member
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.stu.cloud.member.entity.MemberExample">
+  <delete id="deleteByExample" parameterType="com.stu.cloud.entity.MemberExample">
     delete from stu_member
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.stu.cloud.member.entity.Member" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.stu.cloud.entity.Member" useGeneratedKeys="true">
     insert into stu_member (member_no, member_name, member_phone, 
       member_sex, `status`, member_type, 
       create_time, update_time, is_deleted
@@ -115,7 +115,7 @@
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=TINYINT}
       )
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.stu.cloud.member.entity.Member" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.stu.cloud.entity.Member" useGeneratedKeys="true">
     insert into stu_member
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="memberNo != null">
@@ -176,7 +176,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.stu.cloud.member.entity.MemberExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.stu.cloud.entity.MemberExample" resultType="java.lang.Long">
     select count(*) from stu_member
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -236,7 +236,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.stu.cloud.member.entity.Member">
+  <update id="updateByPrimaryKeySelective" parameterType="com.stu.cloud.entity.Member">
     update stu_member
     <set>
       <if test="memberNo != null">
@@ -269,7 +269,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.stu.cloud.member.entity.Member">
+  <update id="updateByPrimaryKey" parameterType="com.stu.cloud.entity.Member">
     update stu_member
     set member_no = #{memberNo,jdbcType=VARCHAR},
       member_name = #{memberName,jdbcType=VARCHAR},

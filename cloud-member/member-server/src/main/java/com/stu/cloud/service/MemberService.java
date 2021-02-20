@@ -1,5 +1,7 @@
 package com.stu.cloud.service;
 
+import com.sto.cloud.member.request.CreateMemberInfoRequest;
+import com.sto.cloud.member.response.QueryMemberInfoResponse;
 import com.stu.cloud.entity.Member;
 
 /**
@@ -14,19 +16,19 @@ public interface MemberService {
      * @param member
      * @return
      */
-    Integer createMember(Member member);
+    Integer createMember(CreateMemberInfoRequest member);
 
     /**
      * 根据id查询会员信息
      * @param memberId
      * @return
      */
-    Member queryMemberById(Long memberId);
+    QueryMemberInfoResponse queryMemberById(Long memberId);
 
     /**
      * 根据会员卡号查询会员信息
      * @param memberNo
      * @return
      */
-    Member queryMemberByNo(String memberNo);
+    QueryMemberInfoResponse queryMemberByNo(String memberNo);
 }

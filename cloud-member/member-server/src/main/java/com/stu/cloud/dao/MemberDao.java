@@ -2,10 +2,11 @@ package com.stu.cloud.dao;
 
 import com.stu.cloud.entity.Member;
 import com.stu.cloud.entity.MemberExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
-
+@Mapper
 public interface MemberDao {
     long countByExample(MemberExample example);
 

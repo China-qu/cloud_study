@@ -76,7 +76,7 @@
     id, order_no, buyer_id, order_type, order_status, order_amount, order_source, remark, 
     create_time, update_time, is_deleted
   </sql>
-  <select id="selectByExample" parameterType="com.stu.cloud.order.entity.OrderExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.stu.cloud.entity.OrderExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -100,13 +100,13 @@
     delete from stu_order
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.stu.cloud.order.entity.OrderExample">
+  <delete id="deleteByExample" parameterType="com.stu.cloud.entity.OrderExample">
     delete from stu_order
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.stu.cloud.order.entity.Order" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.stu.cloud.entity.Order" useGeneratedKeys="true">
     insert into stu_order (order_no, buyer_id, order_type, 
       order_status, order_amount, order_source, 
       remark, create_time, update_time, 
@@ -116,7 +116,7 @@
       #{remark,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{isDeleted,jdbcType=TINYINT})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.stu.cloud.order.entity.Order" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.stu.cloud.entity.Order" useGeneratedKeys="true">
     insert into stu_order
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="orderNo != null">
@@ -183,7 +183,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.stu.cloud.order.entity.OrderExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.stu.cloud.entity.OrderExample" resultType="java.lang.Long">
     select count(*) from stu_order
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -247,7 +247,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.stu.cloud.order.entity.Order">
+  <update id="updateByPrimaryKeySelective" parameterType="com.stu.cloud.entity.Order">
     update stu_order
     <set>
       <if test="orderNo != null">
@@ -283,7 +283,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.stu.cloud.order.entity.Order">
+  <update id="updateByPrimaryKey" parameterType="com.stu.cloud.entity.Order">
     update stu_order
     set order_no = #{orderNo,jdbcType=VARCHAR},
       buyer_id = #{buyerId,jdbcType=VARCHAR},

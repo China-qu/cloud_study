@@ -76,7 +76,7 @@
     id, buyer_id, order_no, channel, trace_no, amount, payment_status, success_time, 
     create_time, update_time, is_deleted
   </sql>
-  <select id="selectByExample" parameterType="com.stu.cloud.payment.entity.PaymentExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.stu.cloud.entity.PaymentExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -100,13 +100,13 @@
     delete from stu_payment
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.stu.cloud.payment.entity.PaymentExample">
+  <delete id="deleteByExample" parameterType="com.stu.cloud.entity.PaymentExample">
     delete from stu_payment
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.stu.cloud.payment.entity.Payment" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.stu.cloud.entity.Payment" useGeneratedKeys="true">
     insert into stu_payment (buyer_id, order_no, channel, 
       trace_no, amount, payment_status, 
       success_time, create_time, update_time, 
@@ -116,7 +116,7 @@
       #{successTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{isDeleted,jdbcType=TINYINT})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.stu.cloud.payment.entity.Payment" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.stu.cloud.entity.Payment" useGeneratedKeys="true">
     insert into stu_payment
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="buyerId != null">
@@ -183,7 +183,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.stu.cloud.payment.entity.PaymentExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.stu.cloud.entity.PaymentExample" resultType="java.lang.Long">
     select count(*) from stu_payment
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -247,7 +247,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.stu.cloud.payment.entity.Payment">
+  <update id="updateByPrimaryKeySelective" parameterType="com.stu.cloud.entity.Payment">
     update stu_payment
     <set>
       <if test="buyerId != null">
@@ -283,7 +283,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.stu.cloud.payment.entity.Payment">
+  <update id="updateByPrimaryKey" parameterType="com.stu.cloud.entity.Payment">
     update stu_payment
     set buyer_id = #{buyerId,jdbcType=VARCHAR},
       order_no = #{orderNo,jdbcType=VARCHAR},

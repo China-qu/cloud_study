@@ -1,22 +1,20 @@
-package com.stu.cloud.entity;
+package com.sto.cloud.member.response;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
- * stu_member
- * @author 
+ * @Author: p_quzhou
+ * @Description: 查询会员信息响应结果数据
+ * @Date: 2021/2/20 10:18
  */
 @Data
-public class Member implements Serializable {
+public class QueryMemberInfoResponse implements Serializable {
+
     /**
      * 主键id
      */
-    @TableId(type = IdType.ID_WORKER)
     private Long id;
 
     /**
@@ -37,32 +35,30 @@ public class Member implements Serializable {
     /**
      * 性别 0男 1女
      */
-    private Byte memberSex;
+    private Integer memberSex;
 
     /**
      * 状态
      */
-    private Byte status;
+    private Integer status;
 
     /**
      * 会员类型
      */
-    private Byte memberType;
+    private Integer memberType;
 
     /**
      * 创建时间
      */
-    private Date createTime;
+    private Long createTime;
 
     /**
      * 修改时间
      */
-    private Date updateTime;
+    private Long updateTime;
 
     /**
      * 软删除标记; 0: 正常, 1: 已删除
      */
-    private Byte isDeleted;
-
-    private static final long serialVersionUID = 1L;
+    private Integer isDeleted;
 }

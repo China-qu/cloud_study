@@ -19,4 +19,5 @@ spring:
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.stu.cloud.member.entity  #所有entity别名所在包
+  type-aliases-package: com.stu.cloud.entity  #所有entity别名所在包
+  
