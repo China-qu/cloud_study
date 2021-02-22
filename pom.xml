@@ -18,6 +18,7 @@
         <module>cloud-payment</module>
         <module>cloud-common</module>
         <module>cloud-member</module>
+        <module>cloud-sync</module>
     </modules>
     <name>cloud20210219</name>
     <description>cloud20210219</description>

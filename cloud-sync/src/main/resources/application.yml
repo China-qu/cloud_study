@@ -1,0 +1,20 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: cloud-sync-service #服务名
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+canal:
+  # instance 实例所在ip
+  host: 127.0.0.1
+  # tcp通信端口
+  port: 11111
+  # 账号  canal-admin application.yml 设置的
+  username:
+  # 密码
+  password:
+  #实例名称
+  instance:
