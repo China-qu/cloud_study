@@ -6,4 +6,6 @@ package com.stu.cloud.service;
  * @Date: 2021/2/19 14:54
  */
 public interface OrderService {
+
+    void createOrder();
 }

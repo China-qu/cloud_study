@@ -34,6 +34,10 @@ public class CommonResult<T> implements Serializable {
         return new CommonResult(msg);
     }
 
+    public boolean isSuccess() {
+        return SUCCESS_CODE.equals(this.code);
+    }
+
     public CommonResult(T data) {
         this.data = data;
         this.code = SUCCESS_CODE;
