@@ -4,6 +4,7 @@ import com.sto.cloud.member.client.fallback.FallbackServiceImpl;
 import com.sto.cloud.member.response.QueryMemberInfoResponse;
 import com.stu.cloud.common.result.CommonResult;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -15,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @FeignClient(name = "cloud-member-service", fallback = FallbackServiceImpl.class)
 public interface MemberClient {
 
-    @RequestMapping(value = "/member/queryMemberInfoById", method = RequestMethod.POST)
-    CommonResult<QueryMemberInfoResponse> queryMemberInfoById(Long memberId);
+    @RequestMapping(value = "/member/queryMemberInfoById/{memberId}", method = RequestMethod.POST)
+    CommonResult<QueryMemberInfoResponse> queryMemberInfoById(@PathVariable("memberId") Long memberId);
 
-    @RequestMapping(value = "/member/queryMemberInfoByNo", method = RequestMethod.POST)
-    CommonResult<QueryMemberInfoResponse> queryMemberInfoByNo(String memberNo);
+    @RequestMapping(value = "/member/queryMemberInfoByNo/{memberNo}", method = RequestMethod.POST)
+    CommonResult<QueryMemberInfoResponse> queryMemberInfoByNo(@PathVariable("memberNo") String memberNo);
 }

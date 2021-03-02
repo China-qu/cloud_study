@@ -2,10 +2,11 @@ package com.stu.cloud.dao;
 
 import com.stu.cloud.entity.Order;
 import com.stu.cloud.entity.OrderExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
-
+@Mapper
 public interface OrderDao {
     long countByExample(OrderExample example);
 

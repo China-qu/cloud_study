@@ -53,4 +53,8 @@ public class CommonResult<T> implements Serializable {
         this.code = FAIL_CODE;
         this.msg = msg;
     }
+
+    public CommonResult() {
+
+    }
 }
